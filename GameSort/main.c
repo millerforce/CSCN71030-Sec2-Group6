@@ -6,8 +6,8 @@
 
 
 int main() {
-    Game games[MAX_GAMES] = { 0 };
-    UserProfile profiles[MAX_PROFILES] = { 0 };
+    PGAME games[MAX_GAMES] = { 0 };
+    PUSERPROFILE profiles[MAX_PROFILES] = { 0 };
     int menuChoice;
     int currentProfileIndex = 0;
     int totalGames = 0;

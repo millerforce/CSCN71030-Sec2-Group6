@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "GameFunctions.h"
+#include "GAMEFunctions.h"
 
 //  generate a profile ID
 int generate_profile_id() {
@@ -10,7 +10,7 @@ int generate_profile_id() {
     return rand() % 9000 + 1000;
 }
 
-void create_profile(UserProfile profiles[], int* currentProfileIndex, int* totalProfiles) {
+void create_profile(USERPROFILE profiles[], int* currentProfileIndex, int* totalProfiles) {
     if (*totalProfiles >= MAX_PROFILES) {
         printf("Maximum number of profiles reached. Cannot create more profiles.\n");
         return;
@@ -37,32 +37,32 @@ void create_profile(UserProfile profiles[], int* currentProfileIndex, int* total
 
 
 
-void add_game(Game games[], int currentProfileIndex) {
+void add_game(GAME games[], int currentProfileIndex) {
     printf("Adding a game to profile %d...\n", currentProfileIndex);
 
 }
 
-void update_game(Game games[], int currentProfileIndex) {
+void update_game(GAME games[], int currentProfileIndex) {
     printf("Updating a game in profile %d...\n", currentProfileIndex);
 
 }
 
-void remove_game(Game games[], int currentProfileIndex) {
+void remove_game(GAME games[], int currentProfileIndex) {
     printf("Removing a game from profile %d...\n", currentProfileIndex);
 
 }
 
-void display_games(const Game games[], int currentProfileIndex) {
+void display_games(const GAME games[], int currentProfileIndex) {
     printf("Displaying games for profile %d...\n", currentProfileIndex);
 
 }
 
-void get_recommendations(const Game games[], int currentProfileIndex) {
+void get_recommendations(const GAME games[], int currentProfileIndex) {
     printf("Getting recommendations for profile %d...\n", currentProfileIndex);
 
 }
 
-void select_profile(UserProfile profiles[], int* currentProfileIndex, int totalProfiles) {
+void select_profile(USERPROFILE profiles[], int* currentProfileIndex, int totalProfiles) {
     if (totalProfiles == 0) {
         printf("No profiles exist. Please create a profile first.\n");
         return;
@@ -90,7 +90,7 @@ void select_profile(UserProfile profiles[], int* currentProfileIndex, int totalP
 }
 
 
-void search_game_catalogue(const Game games[], int totalGames) {
+void search_game_catalogue(const GAME games[], int totalGAMEs) {
     char searchQuery[100];
     printf("Enter the game title to search for: ");
     scanf_s("%s", searchQuery, (unsigned int)sizeof(searchQuery));

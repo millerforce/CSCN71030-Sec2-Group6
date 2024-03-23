@@ -1,7 +1,24 @@
 ﻿  GameFunctions.c
-C:\Users\mille\Desktop\GameSort\GameSort\GameFunctions.c(9,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\mille\Desktop\GameSort\GameSort\GameFunctions.c(40,33): warning C4028: formal parameter 2 different from declaration
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\GameFunctions.c(9,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\GameFunctions.c(40,33): warning C4028: formal parameter 2 different from declaration
   main.c
-C:\Users\mille\Desktop\GameSort\GameSort\main.c(18,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(18,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(39,22): warning C4047: 'function': 'GAME *' differs in levels of indirection from 'PGAME [100]'
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(39,22): warning C4024: 'add_game': different types for formal and actual parameter 1
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(49,35): warning C4047: 'function': 'const GAME *' differs in levels of indirection from 'PGAME [100]'
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(49,35): warning C4024: 'search_game_catalogue': different types for formal and actual parameter 1
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(55,32): warning C4047: 'function': 'USERPROFILE *' differs in levels of indirection from 'PUSERPROFILE [10]'
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(55,32): warning C4024: 'create_profile': different types for formal and actual parameter 1
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(61,28): warning C4047: 'function': 'USERPROFILE *' differs in levels of indirection from 'PUSERPROFILE [10]'
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(61,28): warning C4024: 'select_profile': different types for formal and actual parameter 1
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(65,33): warning C4047: 'function': 'const GAME *' differs in levels of indirection from 'PGAME [100]'
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(65,33): warning C4024: 'get_recommendations': different types for formal and actual parameter 1
+  Save&Load.c
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\Save&Load.c(12,22): warning C4028: formal parameter 1 different from declaration
   Generating Code...
-  GameSort.vcxproj -> C:\Users\mille\Desktop\GameSort\x64\Debug\GameSort.exe
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\Save&Load.c(10): warning C4716: 'LoadProfile': must return a value
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\Save&Load.c(6): warning C4716: 'SaveProfile': must return a value
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\Save&Load.c(18): warning C4716: 'LoadGames': must return a value
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\Save&Load.c(14): warning C4716: 'SaveGames': must return a value
+  LINK : C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\x64\Debug\GameSort.exe not found or not built by the last incremental link; performing full link
+  GameSort.vcxproj -> C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\x64\Debug\GameSort.exe
