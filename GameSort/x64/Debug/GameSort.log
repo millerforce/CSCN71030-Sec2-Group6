@@ -1,0 +1,7 @@
+﻿  GameFunctions.c
+C:\Users\mille\Desktop\GameSort\GameSort\GameFunctions.c(9,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\mille\Desktop\GameSort\GameSort\GameFunctions.c(40,33): warning C4028: formal parameter 2 different from declaration
+  main.c
+C:\Users\mille\Desktop\GameSort\GameSort\main.c(18,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  GameSort.vcxproj -> C:\Users\mille\Desktop\GameSort\x64\Debug\GameSort.exe
