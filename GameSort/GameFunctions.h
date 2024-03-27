@@ -2,6 +2,8 @@
 #ifndef GAMEFUNCTIONS_H
 #define GAMEFUNCTIONS_H
 
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <stdlib.h> 
 
@@ -14,7 +16,8 @@ typedef struct game{
     int gameID;
     char title[100];
     char genre[50];
-
+    char description[300];
+    int length;
 } GAME, *PGAME;
 
 // Struct for a user profile
@@ -27,11 +30,31 @@ typedef struct userprofile{
 } USERPROFILE, *PUSERPROFILE;
 
 // Functions
+//C
 void create_profile(USERPROFILE profiles[], int* currentProfileIndex, int* totalProfiles);
+PGAME CreateGame(int ID, char title[], char genre[], char description, int length);
+//R
 void select_profile(USERPROFILE profiles[], int* currentProfileIndex, int totalProfiles);
-void add_game(GAME games[], int* totalGAMEs);
+int getID(PGAME games[], int index);
+char* getTitle(PGAME games[], int index);
+char* getGenre(PGAME games[], int index);
+char* getDescription(PGAME games[], int index);
+int getLength(PGAME games[], int index);
+
+//U
+int setID(PGAME games[], int index, int ID);
+char* setTitle(PGAME games[], int index, char title[]);
+char* setGenre(PGAME games[], int index, char genre[]);
+char* setDescription(PGAME games[], int index, char description[]);
+int setLength(PGAME games[], int index, int length);
+
 void update_game(GAME games[], int currentProfileIndex);
+//D
 void remove_game(GAME games[], int currentProfileIndex);
+
+
+
+
 void display_games(const GAME games[], int currentProfileIndex);
 void get_recommendations(const GAME games[], int currentProfileIndex);
 void search_game_catalogue(const GAME games[], int totalGAMEs);

@@ -33,12 +33,79 @@ void create_profile(USERPROFILE profiles[], int* currentProfileIndex, int* total
     printf("Profile created successfully. Profile ID is %d\n", profiles[*currentProfileIndex].userID);
 }
 
+PGAME CreateGame(int ID, char title[], char genre[], char description, int length) {
+    //printf("Adding a game to profile %d...\n", index);
 
+    PGAME temp = (PGAME)malloc(sizeof(GAME));
+  
+    if (temp == NULL) {
+        fprintf(stderr, "MEMORY ALLOCATION ERROR PROGRAM WILL NOW EXIT\n");
+        exit(1);
+    }
+    else {
+        temp->gameID = ID;
+        strcpy(temp->title, title);
+        strcpy(temp->genre, genre);
+        strcpy(temp->description, description);
+        temp->length = length;
+        return temp;
+    }
+}
 
+int getID(PGAME games[], int index) {
+    if (games[index] == NULL) {
+        printf("No GAME at index %d unable to retrieve ID", index);
+    }
+    else
+        return games[index]->gameID;
+}
 
+char* getTitle(PGAME games[], int index) {
+    if (games[index] == NULL) {
+        printf("No GAME at index %d unable to retrieve Title", index);
+    }
+    else
+        return games[index]->title;
+}
 
-void add_game(GAME games[], int currentProfileIndex) {
-    printf("Adding a game to profile %d...\n", currentProfileIndex);
+char* getGenre(PGAME games[], int index) {
+    if (games[index] == NULL) {
+        printf("No GAME at index %d unable to retrieve Genre", index);
+    }
+    else
+        return games[index]->genre;
+}
+
+char* getDescription(PGAME games[], int index) {
+    if (games[index] == NULL) {
+        printf("No GAME at index %d unable to retrieve Description", index);
+    }
+    else
+        return games[index]->description;
+}
+
+int getLength(PGAME games[], int index) {
+    if (games[index] == NULL) {
+        printf("No GAME at index %d unable to retrieve Length", index);
+    }
+    else
+        return games[index]->length;
+}
+
+//U
+int setID(PGAME games[], int index, int ID) {
+
+}
+char* setTitle(PGAME games[], int index, char title[]) {
+
+}
+char* setGenre(PGAME games[], int index, char genre[]) {
+
+}
+char* setDescription(PGAME games[], int index, char description[]) {
+
+}
+int setLength(PGAME games[], int index, int length) {
 
 }
 

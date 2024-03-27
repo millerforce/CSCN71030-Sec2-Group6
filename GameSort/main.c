@@ -36,7 +36,8 @@ int main() {
         switch (menuChoice) {
         case 1:
             // case for adding a game
-            add_game(games, &totalGames);
+            add_game(games, totalGames);
+            totalGames++;
             break;
         case 2:
             //   case for updating a game
@@ -66,12 +67,13 @@ int main() {
             break;
         case 8:
             // Exit 
+            free(games);
             return 0;
         default:
             printf("Not a valid option.\n");
             break;
         }
     } while (menuChoice != 8);
-
+ 
     return 0;
 }
