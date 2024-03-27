@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "GAMEFunctions.h"
+#include "GameFunctions.h"
 
 //  generate a profile ID
 int generate_profile_id() {
@@ -54,7 +54,7 @@ PGAME CreateGame(int ID, char title[], char genre[], char description, int lengt
 
 int getID(PGAME games[], int index) {
     if (games[index] == NULL) {
-        printf("No GAME at index %d unable to retrieve ID", index);
+        printf("No GAME at index %d unable to retrieve ID\n", index);
     }
     else
         return games[index]->gameID;
@@ -62,7 +62,7 @@ int getID(PGAME games[], int index) {
 
 char* getTitle(PGAME games[], int index) {
     if (games[index] == NULL) {
-        printf("No GAME at index %d unable to retrieve Title", index);
+        printf("No GAME at index %d unable to retrieve Title\n", index);
     }
     else
         return games[index]->title;
@@ -70,7 +70,7 @@ char* getTitle(PGAME games[], int index) {
 
 char* getGenre(PGAME games[], int index) {
     if (games[index] == NULL) {
-        printf("No GAME at index %d unable to retrieve Genre", index);
+        printf("No GAME at index %d unable to retrieve Genre\n", index);
     }
     else
         return games[index]->genre;
@@ -78,7 +78,7 @@ char* getGenre(PGAME games[], int index) {
 
 char* getDescription(PGAME games[], int index) {
     if (games[index] == NULL) {
-        printf("No GAME at index %d unable to retrieve Description", index);
+        printf("No GAME at index %d unable to retrieve Description\n", index);
     }
     else
         return games[index]->description;
@@ -86,27 +86,62 @@ char* getDescription(PGAME games[], int index) {
 
 int getLength(PGAME games[], int index) {
     if (games[index] == NULL) {
-        printf("No GAME at index %d unable to retrieve Length", index);
+        printf("No GAME at index %d unable to retrieve Length\n", index);
     }
     else
         return games[index]->length;
 }
 
 //U
-int setID(PGAME games[], int index, int ID) {
-
+bool setID(PGAME games[], int index, int ID) {
+    if (ID < 0 || ID > 200) {
+        printf("GAME ID is out of valid range\n");
+        return false;
+    }
+    else {
+        games[index]->gameID = ID;
+        return true;
+    }
 }
-char* setTitle(PGAME games[], int index, char title[]) {
-
+bool setTitle(PGAME games[], int index, char title[]) {
+    if (strlen(title) > MAXTITLE) {
+        printf("GAME title is too long\n");
+        return false;
+    }
+    else {
+        strcpy(games[index]->title, title);
+        return true;
+    }
 }
-char* setGenre(PGAME games[], int index, char genre[]) {
-
+bool setGenre(PGAME games[], int index, char genre[]) {
+    if (strlen(genre) > MAXGENRE) {
+        printf("GAME genre is too long\n");
+        return false;
+    }
+    else {
+        strcpy(games[index]->genre, genre);
+        return true;
+    }
 }
-char* setDescription(PGAME games[], int index, char description[]) {
-
+bool setDescription(PGAME games[], int index, char description[]) {
+    if (strlen(description) > MAXDESCRIPTION) {
+        printf("GAME genre is too long\n");
+        return false;
+    }
+    else {
+        strcpy(games[index]->description, description);
+        return true;
+    }
 }
-int setLength(PGAME games[], int index, int length) {
-
+bool setLength(PGAME games[], int index, int length) {
+    if (length < 0) {
+        printf("GAME length is out of valid range\n");
+        return false;
+    }
+    else {
+        games[index]->length = length;
+        return true;
+    }
 }
 
 void update_game(GAME games[], int currentProfileIndex) {
