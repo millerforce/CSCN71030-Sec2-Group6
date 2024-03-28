@@ -3,21 +3,26 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-
+#include "Save&Load.h"
 
 int main() {
     PGAME games[MAX_GAMES] = { 0 };
     PUSERPROFILE profiles[MAX_PROFILES] = { 0 };
-    int menuChoice;
+    char title[MAXTITLE], genre[MAXGENRE], description[MAXDESCRIPTION];
+    int menuChoice = 9, length, ID;
     int currentProfileIndex = 0;
     int totalGames = 0;
     int totalProfiles = 0;
     int createProfileOptionEnabled = 1;
-
+    bool exitCondition = true;
 
     srand(time(NULL));
 
-    do {
+    if (!LoadGames(games))
+        exit(1);
+
+    while (exitCondition) {
+        
         printf("                        Welcome to the GameSort program              \n");
         printf("-----------------------------------------------------------------------\n");
         printf("Please choose one of the following options:\n");
@@ -36,7 +41,17 @@ int main() {
         switch (menuChoice) {
         case 1:
             // case for adding a game
-            add_game(games, totalGames);
+            printf("Title: ");
+            scanf("%s", title);
+            printf("ID: ");
+            scanf("%d", &ID);
+            printf("Genre: ");
+            scanf("%s", genre);
+            printf("Descrtiption: ");
+            scanf(" %[^\n]s", description);
+            printf("Length: ");
+            scanf("%d", &length);
+            games[totalGames] = CreateGame(ID, title, genre, description, length);
             totalGames++;
             break;
         case 2:
@@ -67,13 +82,15 @@ int main() {
             break;
         case 8:
             // Exit 
-            free(games);
-            return 0;
+            SaveGameCatalogue(games);
+            DeleteGameCatalogue(games);
+            exitCondition = false;
+            break;
         default:
             printf("Not a valid option.\n");
             break;
         }
-    } while (menuChoice != 8);
+    }
  
     return 0;
 }

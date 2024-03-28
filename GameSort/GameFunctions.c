@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -33,7 +35,7 @@ void create_profile(USERPROFILE profiles[], int* currentProfileIndex, int* total
     printf("Profile created successfully. Profile ID is %d\n", profiles[*currentProfileIndex].userID);
 }
 
-PGAME CreateGame(int ID, char title[], char genre[], char description, int length) {
+PGAME CreateGame(int ID, char title[], char genre[], char description[], int length) {
     //printf("Adding a game to profile %d...\n", index);
 
     PGAME temp = (PGAME)malloc(sizeof(GAME));
@@ -41,6 +43,7 @@ PGAME CreateGame(int ID, char title[], char genre[], char description, int lengt
     if (temp == NULL) {
         fprintf(stderr, "MEMORY ALLOCATION ERROR PROGRAM WILL NOW EXIT\n");
         exit(1);
+
     }
     else {
         temp->gameID = ID;
@@ -50,6 +53,10 @@ PGAME CreateGame(int ID, char title[], char genre[], char description, int lengt
         temp->length = length;
         return temp;
     }
+}
+
+int getTotalGames(PGAME games[]) {
+
 }
 
 int getID(PGAME games[], int index) {
@@ -87,6 +94,7 @@ char* getDescription(PGAME games[], int index) {
 int getLength(PGAME games[], int index) {
     if (games[index] == NULL) {
         printf("No GAME at index %d unable to retrieve Length\n", index);
+        return 0;
     }
     else
         return games[index]->length;
@@ -149,9 +157,19 @@ void update_game(GAME games[], int currentProfileIndex) {
 
 }
 
-void remove_game(GAME games[], int currentProfileIndex) {
-    printf("Removing a game from profile %d...\n", currentProfileIndex);
+void DeleteGame(PGAME games[], int index) {
+    printf("Deleted %s from master catalogue this game will no longer\n", games[index]->title);
+    printf("be saved to disk at next catalogue save\n");
 
+    free(games[index]);
+}
+
+void DeleteGameCatalogue(PGAME games[]) {
+    for (int i = 0; i < MAX_GAMES; i++) {
+        if (games[i] != NULL)
+            free(games[i]);
+        games[i] = NULL;
+    }
 }
 
 void display_games(const GAME games[], int currentProfileIndex) {

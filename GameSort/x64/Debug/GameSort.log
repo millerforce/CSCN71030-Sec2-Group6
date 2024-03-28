@@ -1,11 +1,11 @@
 ﻿  main.c
-C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(18,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(50,35): warning C4047: 'function': 'const GAME *' differs in levels of indirection from 'PGAME [100]'
-C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(50,35): warning C4024: 'search_game_catalogue': different types for formal and actual parameter 1
-C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(56,32): warning C4047: 'function': 'USERPROFILE *' differs in levels of indirection from 'PUSERPROFILE [10]'
-C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(56,32): warning C4024: 'create_profile': different types for formal and actual parameter 1
-C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(62,28): warning C4047: 'function': 'USERPROFILE *' differs in levels of indirection from 'PUSERPROFILE [10]'
-C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(62,28): warning C4024: 'select_profile': different types for formal and actual parameter 1
-C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(66,33): warning C4047: 'function': 'const GAME *' differs in levels of indirection from 'PGAME [100]'
-C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(66,33): warning C4024: 'get_recommendations': different types for formal and actual parameter 1
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(19,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(65,35): warning C4047: 'function': 'const GAME *' differs in levels of indirection from 'PGAME [100]'
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(65,35): warning C4024: 'search_game_catalogue': different types for formal and actual parameter 1
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(71,32): warning C4047: 'function': 'USERPROFILE *' differs in levels of indirection from 'PUSERPROFILE [10]'
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(71,32): warning C4024: 'create_profile': different types for formal and actual parameter 1
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(77,28): warning C4047: 'function': 'USERPROFILE *' differs in levels of indirection from 'PUSERPROFILE [10]'
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(77,28): warning C4024: 'select_profile': different types for formal and actual parameter 1
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(81,33): warning C4047: 'function': 'const GAME *' differs in levels of indirection from 'PGAME [100]'
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\main.c(81,33): warning C4024: 'get_recommendations': different types for formal and actual parameter 1
   GameSort.vcxproj -> C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\x64\Debug\GameSort.exe
