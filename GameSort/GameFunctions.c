@@ -56,7 +56,12 @@ PGAME CreateGame(int ID, char title[], char genre[], char description[], int len
 }
 
 int getTotalGames(PGAME games[]) {
-
+    int total = 0;
+    for (int i = 0; i < MAX_GAMES; i++) {
+        if (games[i] != NULL)
+            total++;
+    }
+    return total;
 }
 
 int getID(PGAME games[], int index) {

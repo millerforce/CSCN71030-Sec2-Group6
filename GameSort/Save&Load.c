@@ -26,6 +26,8 @@ bool SaveGameCatalogue(PGAME games[]) {
 		exit(1);
 	}
 
+	//fprintf(fp, "\n");
+
 	for (int i = 0; i < MAX_GAMES; i++) {
 		if (games[i] != NULL)
 			SaveGame(games[i], fp);
@@ -45,15 +47,20 @@ bool LoadGames(PGAME games[]) {
 	if (fp == NULL)
 		return false;
 	int index = 0;
-	do {
-		fscanf(fp, "%s\n", title);
+
+	//if (fgetc(fp) == EOF) return true;
+
+	while (fscanf(fp, "%s\n", title) != EOF) {
 		fscanf(fp, "%d\n", &ID);
 		fscanf(fp, "%s\n", genre);
 		fscanf(fp, "%s\n", description);
 		fscanf(fp, "%d\n\n", &length);
 		games[index] = CreateGame(ID, title, genre, description, length);
 		index++;
-	} while (fgetc(fp) != EOF);
+
+		if (feof(fp))
+			break;
+	} ;
 	fclose(fp);
 	return true;
 }

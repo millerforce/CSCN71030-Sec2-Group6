@@ -20,6 +20,7 @@ int main() {
 
     if (!LoadGames(games))
         exit(1);
+    totalGames = getTotalGames(games);
 
     while (exitCondition) {
         
@@ -42,7 +43,7 @@ int main() {
         case 1:
             // case for adding a game
             printf("Title: ");
-            scanf("%s", title);
+            scanf(" %[^\n]s", title);
             printf("ID: ");
             scanf("%d", &ID);
             printf("Genre: ");
