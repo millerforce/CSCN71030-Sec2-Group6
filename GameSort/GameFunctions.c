@@ -55,6 +55,34 @@ PGAME CreateGame(int ID, char title[], char genre[], char description[], int len
     }
 }
 
+//R
+
+// this uses linear search. this could be made better but in the scale of this project it is sufficient
+int SearchForGame(PGAME games[], char title[]) {
+
+    for (int i = 0; i < MAX_GAMES; i++) {
+        if (games[i] != NULL) {
+            if (strcmp(getTitle(games, i), title) == 0)
+                return i;
+        }
+    }
+    return -1;
+}
+
+void PrintGame(PGAME games[], int index) {
+    if (games[index] == NULL) {
+        printf("No game at index %d to print", index);
+        return;
+    }
+    else {
+        printf("%s\n", getTitle(games, index));
+        printf("%d\n", getID(games, index));
+        printf("%s\n", getGenre(games, index));
+        printf("%s\n", getDescription(games, index));
+        printf("%d\n", getLength(games, index));
+    }
+}
+
 int getTotalGames(PGAME games[]) {
     int total = 0;
     for (int i = 0; i < MAX_GAMES; i++) {
@@ -167,6 +195,7 @@ void DeleteGame(PGAME games[], int index) {
     printf("be saved to disk at next catalogue save\n");
 
     free(games[index]);
+    games[index] = NULL;
 }
 
 void DeleteGameCatalogue(PGAME games[]) {

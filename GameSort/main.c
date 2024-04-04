@@ -9,18 +9,18 @@ int main() {
     PGAME games[MAX_GAMES] = { 0 };
     PUSERPROFILE profiles[MAX_PROFILES] = { 0 };
     char title[MAXTITLE], genre[MAXGENRE], description[MAXDESCRIPTION];
-    int menuChoice = 9, length, ID;
+    int menuChoice = 9, length, ID, searchedIndex = 0;
     int currentProfileIndex = 0;
-    int totalGames = 0;
     int totalProfiles = 0;
     int createProfileOptionEnabled = 1;
     bool exitCondition = true;
+    char search[MAXTITLE];
 
     srand(time(NULL));
 
     if (!LoadGames(games))
         exit(1);
-    totalGames = getTotalGames(games);
+    int totalGames = getTotalGames(games);
 
     while (exitCondition) {
         
@@ -44,10 +44,9 @@ int main() {
             // case for adding a game
             printf("Title: ");
             scanf(" %[^\n]s", title);
-            printf("ID: ");
-            scanf("%d", &ID);
+            ID = totalGames;
             printf("Genre: ");
-            scanf("%s", genre);
+            scanf(" %[^\n]s", genre);
             printf("Descrtiption: ");
             scanf(" %[^\n]s", description);
             printf("Length: ");
@@ -59,12 +58,33 @@ int main() {
             //   case for updating a game
             break;
         case 3:
+      
+            printf("Please enter the title of the game to delete: ");
+            scanf(" %[^\n]s", search);
+            searchedIndex = SearchForGame(games, search);
+            if (searchedIndex == -1) {
+                printf("No game matching that title is currently in the master catalogue\nplease try again\n");
+                break;
+            }
+            else {
+                DeleteGame(games, searchedIndex);
+                printf("Game titled: %s was deleted successfully", search);
+            }
             //  for removing a game
             break;
         case 4:
             // for searching the game catalogue
-            search_game_catalogue(games, totalGames);
-            break;
+            printf("Please enter the title of the game to find: ");
+            scanf(" %[^\n]s", search);
+            searchedIndex = SearchForGame(games, search);
+            if (searchedIndex == -1) {
+                printf("No game matching that title is currently in the master catalogue\nplease try again\n");
+                break;
+            }
+            else {
+                PrintGame(games, searchedIndex);
+                break;
+            }
         case 5:
             if (createProfileOptionEnabled) {
 

@@ -34,13 +34,15 @@ typedef struct userprofile{
 
 // Functions
 //C
-void create_profile(USERPROFILE profiles[], int* currentProfileIndex, int* totalProfiles);
+
 
 PGAME CreateGame(int ID, char title[], char genre[], char description[], int length);
 
 //R
 void select_profile(USERPROFILE profiles[], int* currentProfileIndex, int totalProfiles);
 
+int SearchForGame(PGAME games[], char title[]);
+void PrintGame(PGAME games[], int index);
 int getTotalGames(PGAME games[]);
 int getID(PGAME games[], int index);
 char* getTitle(PGAME games[], int index);
@@ -65,5 +67,5 @@ void DeleteGameCatalogue(PGAME games[]);
 void display_games(const GAME games[], int currentProfileIndex);
 void get_recommendations(const GAME games[], int currentProfileIndex);
 void search_game_catalogue(const GAME games[], int totalGAMEs);
-
+void create_profile(USERPROFILE profiles[], int* currentProfileIndex, int* totalProfiles);
 #endif 
