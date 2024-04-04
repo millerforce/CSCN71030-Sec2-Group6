@@ -12,7 +12,9 @@ int main() {
         printf("2. Update Profile\n");
         printf("3. Delete Profile\n");
         printf("4. Display Profiles\n");
-        printf("5. Exit\n");
+        printf("5. Sign In\n");
+        printf("6. Sign Out\n");
+        printf("7. Exit\n");
         printf("Enter your choice: ");
 
         // Check the return value of scanf
@@ -52,12 +54,42 @@ int main() {
             display_profiles();
             break;
         case 5:
+        {
+            int userID;
+            char password[50];
+            printf("Enter profile ID: ");
+            if (scanf("%d", &userID) != 1) {
+                printf("Error reading profile ID.\n");
+                break;
+            }
+            printf("Enter password: ");
+            if (scanf("%49s", password) != 1) {
+                printf("Error reading password.\n");
+                break;
+            }
+
+            int isValid = verify_password(userID, password);
+            if (isValid == 1) {
+                printf("Signed in successfully.\n");
+            }
+            else if (isValid == 0) {
+                printf("Incorrect password. Sign in failed.\n");
+            }
+            else {
+                printf("Profile ID not found or profile inactive. Sign in failed.\n");
+            }
+        }
+        break;
+        case 6:
+            printf("Signed out successfully.\n");
+            break;
+        case 7:
             printf("Exiting program.\n");
             break;
         default:
             printf("Invalid choice. Please try again.\n");
         }
-    } while (choice != 5);
+    } while (choice != 7);
 
     return 0;
 }
