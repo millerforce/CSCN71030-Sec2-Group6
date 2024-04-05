@@ -1,7 +1,4 @@
-﻿  GameFunctions.c
-C:\Users\mille\Desktop\GameSort\GameSort\GameFunctions.c(9,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\mille\Desktop\GameSort\GameSort\GameFunctions.c(40,33): warning C4028: formal parameter 2 different from declaration
-  main.c
-C:\Users\mille\Desktop\GameSort\GameSort\main.c(18,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
-  GameSort.vcxproj -> C:\Users\mille\Desktop\GameSort\x64\Debug\GameSort.exe
+﻿  Save&Load.c
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\Save&Load.c(6): warning C4716: 'SaveProfile': must return a value
+C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\GameSort\Save&Load.c(10): warning C4716: 'LoadProfile': must return a value
+  GameSort.vcxproj -> C:\Users\mille\Desktop\CSCN71030-Sec2-Group6\x64\Debug\GameSort.exe

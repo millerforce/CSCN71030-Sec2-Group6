@@ -21,10 +21,19 @@
     <ClCompile Include="GameFunctions.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Save&amp;Load.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Save&amp;Load.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameCatalogue.dat" />
   </ItemGroup>
 </Project>
