@@ -191,7 +191,7 @@ void update_game(GAME games[], int currentProfileIndex) {
 }
 
 void DeleteGame(PGAME games[], int index) {
-    printf("Deleted %s from master catalogue this game will no longer\n", games[index]->title);
+    printf("Deleted %s from master catalogue. This game will no longer\n", games[index]->title);
     printf("be saved to disk at next catalogue save\n");
 
     free(games[index]);

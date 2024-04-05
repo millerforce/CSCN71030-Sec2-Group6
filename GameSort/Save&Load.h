@@ -5,7 +5,7 @@
 
 bool SaveProfile(USERPROFILE p);
 
-PUSERPROFILE LoadProfile(char* name);
+PUSERPROFILE LoadProfile(char* name, PGAME games[]);
 
 bool SaveGame(PGAME games[], FILE* fp, int index);
 

@@ -5,8 +5,10 @@ bool SaveProfile(USERPROFILE p) {
 
 }
 
-PUSERPROFILE LoadProfile(char* name) {
-
+PUSERPROFILE LoadProfile(char* name, PGAME games[]) {
+	FILE* fp = fopen("%s.dat", "r", name);
+	//fscanf(fp, " %[^\n]s", );
+	fclose(fp);
 }
 
 bool SaveGame(PGAME games[], FILE* fp, int index) {

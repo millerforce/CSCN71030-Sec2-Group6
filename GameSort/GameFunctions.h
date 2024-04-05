@@ -29,7 +29,7 @@ typedef struct userprofile{
     char firstName[50];
     char lastName[50];
     char gamertag[50];
-
+    PGAME personalGames[MAX_GAMES];
 } USERPROFILE, *PUSERPROFILE;
 
 // Functions
