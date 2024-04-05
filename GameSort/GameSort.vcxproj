@@ -129,10 +129,12 @@
   <ItemGroup>
     <ClCompile Include="GameFunctions.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Profiles.c" />
     <ClCompile Include="Save&amp;Load.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameFunctions.h" />
+    <ClInclude Include="Profiles.h" />
     <ClInclude Include="Save&amp;Load.h" />
   </ItemGroup>
   <ItemGroup>
