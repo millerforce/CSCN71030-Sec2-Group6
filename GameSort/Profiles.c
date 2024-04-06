@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 
-UserProfile profiles[MAX_PROFILES];
-int totalProfiles = 0;
+//UserProfile profiles[MAX_PROFILES];
+//int totalProfiles = 0;
 
 // Function to generate a unique profile ID
 int generate_profile_id() {
@@ -12,92 +12,43 @@ int generate_profile_id() {
 }
 
 // Function to create a new user profile
-void create_profile() {
-    if (totalProfiles >= MAX_PROFILES) {
-        printf("Maximum number of profiles reached. Cannot create more profiles.\n");
-        return;
+PUSERPROFILE create_profile(int ID, char first[], char last[], char tag[], char password[], PGAME catalogue[]) {
+
+    PUSERPROFILE temp = (PUSERPROFILE)malloc(sizeof(USERPROFILE));
+
+    if (temp == NULL) {
+        printf("Memory Allocation Error\n");
+        exit(1);
     }
 
-    printf("Creating a new profile...\n");
-    printf("Enter first name: ");
-    if (scanf("%49s", profiles[totalProfiles].firstName) != 1) {
-        printf("Error reading first name.\n");
-        return;
-    }
+    temp->userID = ID;
 
-    printf("Enter last name: ");
-    if (scanf("%49s", profiles[totalProfiles].lastName) != 1) {
-        printf("Error reading last name.\n");
-        return;
-    }
+    strcpy(temp->firstName, first);
 
-    printf("Enter gamertag: ");
-    if (scanf("%49s", profiles[totalProfiles].gamertag) != 1) {
-        printf("Error reading gamertag.\n");
-        return;
-    }
+    strcpy(temp->lastName, last);
 
-    printf("Enter password for the profile: ");
-    if (scanf("%49s", profiles[totalProfiles].password) != 1) {
-        printf("Error reading password.\n");
-        return;
-    }
+    strcpy(temp->gamertag, tag);
 
-    profiles[totalProfiles].userID = generate_profile_id();
-    profiles[totalProfiles].isActive = 1; // Set profile as active
-    profiles[totalProfiles].totalGames = 0; // Initialize totalGames for the new profile
+    strcpy(temp->password, password);
 
-    // Prompt the user to add games to the catalog
-    printf("Add games to the catalog (enter 'done' to finish):\n");
-    char input[100];
-    do {
-        printf("Enter game title (or 'done' to finish): ");
-        if (scanf("%99s", input) != 1) {
-            printf("Error reading game title.\n");
-            return;
+    for (int i = 0; i < MAX_GAMES; i++) {
+        if (catalogue[i] != NULL)
+            temp->gameCatalog[i] = catalogue[i];
+   }
+
+    return temp;
+}
+
+bool AddGameToProfile(PGAME usersGames[], PGAME game) {
+    for (int i = 0; i < MAX_GAMES; i++) {
+        if (usersGames[i] == NULL) {
+            usersGames[i] = game;
+            return true;
         }
-        input[99] = '\0'; // Ensure input is null-terminated
+    }
 
-        if (strcmp(input, "done") == 0) {
-            break;
-        }
-
-        // Add the game to the catalog
-        if (profiles[totalProfiles].totalGames < MAX_GAMES) {
-            strcpy(profiles[totalProfiles].gameCatalog[profiles[totalProfiles].totalGames].title, input);
-            int year, scanfResult;
-            do {
-                printf("Enter game year: ");
-                scanfResult = scanf("%d", &year);
-                if (scanfResult != 1) {
-                    printf("Invalid input. Please enter an integer for the year.\n");
-                    while (getchar() != '\n'); // Clear input buffer
-                }
-            } while (scanfResult != 1);
-            profiles[totalProfiles].gameCatalog[profiles[totalProfiles].totalGames].year = year;
-
-            float rating;
-            do {
-                printf("Enter game rating: ");
-                scanfResult = scanf("%f", &rating);
-                if (scanfResult != 1) {
-                    printf("Invalid input. Please enter a number for the rating.\n");
-                    while (getchar() != '\n'); // Clear input buffer
-                }
-            } while (scanfResult != 1);
-            profiles[totalProfiles].gameCatalog[profiles[totalProfiles].totalGames].rating = rating;
-
-            profiles[totalProfiles].totalGames++;
-        }
-        else {
-            printf("Maximum number of games reached. Cannot add more games.\n");
-            break;
-        }
-    } while (1);
-
-    totalProfiles++;
-
-    printf("Profile created successfully. Profile ID is %d\n", profiles[totalProfiles - 1].userID);
+    printf("No room in users catalogue\n");
+    return false;
 }
 
 // Function to update an existing user profile

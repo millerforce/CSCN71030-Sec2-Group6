@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Profiles.h"
 #include "GameFunctions.h"
 #include <stdbool.h>
 

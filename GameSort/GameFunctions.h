@@ -9,7 +9,7 @@
 #include <stdbool.h>
 
 #define MAX_GAMES 100
-#define MAX_PROFILES 10
+//#define MAX_PROFILES 10
 #define MAXTITLE 100
 #define MAXGENRE 50
 #define MAXDESCRIPTION 400
@@ -22,15 +22,6 @@ typedef struct game{
     char description[MAXDESCRIPTION];
     int length;
 } GAME, *PGAME;
-
-// Struct for a user profile
-typedef struct userprofile{
-    int userID;
-    char firstName[50];
-    char lastName[50];
-    char gamertag[50];
-    PGAME personalGames[MAX_GAMES];
-} USERPROFILE, *PUSERPROFILE;
 
 // Functions
 //C
@@ -67,5 +58,4 @@ void DeleteGameCatalogue(PGAME games[]);
 void display_games(const GAME games[], int currentProfileIndex);
 void get_recommendations(const GAME games[], int currentProfileIndex);
 void search_game_catalogue(const GAME games[], int totalGAMEs);
-void create_profile(USERPROFILE profiles[], int* currentProfileIndex, int* totalProfiles);
 #endif 

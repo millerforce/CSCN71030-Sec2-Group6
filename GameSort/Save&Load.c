@@ -6,9 +6,28 @@ bool SaveProfile(USERPROFILE p) {
 }
 
 PUSERPROFILE LoadProfile(char* name, PGAME games[]) {
+	PGAME tempGames = (PGAME)malloc(sizeof(GAME));
+	PUSERPROFILE tempUser = (PGAME)malloc(sizeof(GAME));
+
 	FILE* fp = fopen("%s.dat", "r", name);
-	//fscanf(fp, " %[^\n]s", );
+
+	fscanf(fp, "%d\n", tempUser->userID);
+	fscanf(fp, " %[^\n]s\n", tempUser->firstName);
+	fscanf(fp, " %[^\n]s\n", tempUser->lastName);
+	fscanf(fp, " %[^\n]s\n", tempUser->gamertag);
+	fscanf(fp, " %[^\n]s\n\n", tempUser->password);
+
+	char title[MAXTITLE];
+	int index;
+
+	while (fscanf(fp, " %[^\n]s\n", title) != EOF) {
+		
+	}
+
+	free(tempGames);
 	fclose(fp);
+
+	return tempUser;
 }
 
 bool SaveGame(PGAME games[], FILE* fp, int index) {

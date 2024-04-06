@@ -5,7 +5,7 @@
 #include <string.h>
 #include "Save&Load.h"
 
-int main() {
+int main(void) {
     PGAME games[MAX_GAMES] = { 0 };
     PUSERPROFILE profiles[MAX_PROFILES] = { 0 };
     char title[MAXTITLE], genre[MAXGENRE], description[MAXDESCRIPTION];
@@ -115,3 +115,4 @@ int main() {
  
     return 0;
 }
+
