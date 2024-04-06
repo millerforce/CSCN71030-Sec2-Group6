@@ -1,19 +1,44 @@
 
 #include "Save&Load.h"
 
-bool SaveProfile(USERPROFILE p) {
+bool SaveGameTitle(PGAME game, FILE* fp) {
+	fprintf(fp, "%s\n", game->title);
+	return true;
+}
 
+bool SaveProfile(PUSERPROFILE user) {
+	char tempFirst[MAXNAME];
+	strcpy(tempFirst, user->firstName);
+	strcat(tempFirst, ".dat");
+	FILE* fp = fopen(tempFirst, "w");
+
+	if (fp == NULL)
+		exit(3);
+	fprintf(fp, "%d\n", getUserID(user));
+	fprintf(fp, "%s\n", getFirstName(user));
+	fprintf(fp, "%s\n", getLastName(user));
+	fprintf(fp, "%s\n", getGamertag(user));
+	fprintf(fp, "%s\n\n", getPassword(user));
+
+	int numGames = getTotalGames(user->gameCatalog);
+
+	for (int i = 0; i < numGames; i++) {
+		SaveGameTitle(user->gameCatalog[i], fp);
+	}
+
+	return true;
+	fclose(fp);
 }
 
 PUSERPROFILE LoadProfile(char* name, PGAME games[]) {
 	PGAME tempGames[MAX_GAMES] = { 0 };
 		//= (PGAME)malloc(sizeof(GAME));
 	//PUSERPROFILE tempUser = (PGAME)malloc(sizeof(GAME));
+	
+	FILE* fp = fopen(name, "r");
 	int ID;
 	char first[MAXNAME], last[MAXNAME], tag[MAXNAME], password[MAXPASSWORD];
-	FILE* fp = fopen("John.dat", "r");
-
-	if (fp == NULL || tempGames == NULL)
+	if (fp == NULL)
 		exit(2);
 
 	fscanf(fp, "%d\n", &ID);
@@ -39,6 +64,8 @@ PUSERPROFILE LoadProfile(char* name, PGAME games[]) {
 
 	return temp;
 }
+
+
 
 bool SaveGame(PGAME games[], FILE* fp, int index) {
 	fprintf(fp, "%s\n", getTitle(games, index));

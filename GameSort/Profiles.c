@@ -20,7 +20,9 @@ PUSERPROFILE create_profile(int ID, char first[], char last[], char tag[], char 
         printf("Memory Allocation Error\n");
         exit(1);
     }
-
+    for (int i = 0; i < MAX_GAMES; i++) {
+        temp->gameCatalog[i] = NULL;
+    }
     temp->userID = ID;
 
     strcpy(temp->firstName, first);
@@ -37,6 +39,26 @@ PUSERPROFILE create_profile(int ID, char first[], char last[], char tag[], char 
    }
 
     return temp;
+}
+
+int getUserID(PUSERPROFILE user) {
+    return user->userID;
+}
+
+char* getFirstName(PUSERPROFILE user) {
+    return user->firstName;
+}
+
+char* getLastName(PUSERPROFILE user) {
+    return user->lastName;
+}
+
+char* getGamertag(PUSERPROFILE user) {
+    return user->gamertag;
+}
+
+char* getPassword(PUSERPROFILE user) {
+    return user->password;
 }
 
 bool AddGameToProfile(PGAME usersGames[], PGAME game) {

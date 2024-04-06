@@ -3,10 +3,13 @@
 #include "Profiles.h"
 #include "GameFunctions.h"
 #include <stdbool.h>
+#include <string.h>
 
-bool SaveProfile(USERPROFILE p);
+bool SaveProfile(PUSERPROFILE user);
 
 PUSERPROFILE LoadProfile(char* name, PGAME games[]);
+
+bool SaveGameTitle(PGAME game, FILE* fp);
 
 bool SaveGame(PGAME games[], FILE* fp, int index);
 

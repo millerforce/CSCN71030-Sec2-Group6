@@ -90,6 +90,9 @@ int main(void) {
 
                 // for creating a profile
                PUSERPROFILE john = LoadProfile("John.dat", games);
+               SaveProfile(john);
+
+               free(john);
             }
             break;
         case 6:
@@ -98,7 +101,7 @@ int main(void) {
             break;
         case 7:
             // case for getting game recommendations
-            get_recommendations(games, currentProfileIndex);
+            //get_recommendations(games, currentProfileIndex);
             break;
         case 8:
             // Exit 

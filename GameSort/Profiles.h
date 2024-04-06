@@ -40,6 +40,7 @@ int generate_profile_id();
 PUSERPROFILE create_profile(int ID, char first[], char last[], char tag[], char password[], PGAME catalogue[]);
 
 // R
+int getUserID(PUSERPROFILE user);
 char* getFirstName(PUSERPROFILE user);
 char* getLastName(PUSERPROFILE user);
 char* getGamertag(PUSERPROFILE user);
