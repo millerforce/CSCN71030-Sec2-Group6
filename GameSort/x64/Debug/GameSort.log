@@ -1,6 +1,6 @@
 ﻿  Profiles.c
   Save&Load.c
   main.c
-C:\Users\mille\Desktop\GameSort\GameSort\main.c(19,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
+C:\Users\mille\Desktop\GameSort\GameSort\main.c(19,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
   GameSort.vcxproj -> C:\Users\mille\Desktop\GameSort\x64\Debug\GameSort.exe

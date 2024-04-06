@@ -50,6 +50,7 @@ char* getPassword(PUSERPROFILE user);
 bool AddGameToProfile(PGAME usersGames[], PGAME game);
 bool setFirstName(PUSERPROFILE user, char first[]);
 bool setLastName(PUSERPROFILE user, char last[]);
+bool setGamertag(PUSERPROFILE user, char tag[]);
 
 // D
 
