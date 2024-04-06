@@ -9,7 +9,8 @@
 #include "GameFunctions.h"
 
 #define MAX_PROFILES 10
-
+#define MAXNAME 50
+#define MAXPASSWORD 15
 // Struct for a game in the catalog
 //typedef struct {
 //    char title[100];

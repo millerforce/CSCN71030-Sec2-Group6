@@ -44,5 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GameCatalogue.dat" />
+    <None Include="John.dat" />
   </ItemGroup>
 </Project>

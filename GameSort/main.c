@@ -89,13 +89,12 @@ int main(void) {
             if (createProfileOptionEnabled) {
 
                 // for creating a profile
-                create_profile(profiles, &currentProfileIndex, &totalProfiles);
-                createProfileOptionEnabled = 0;
+               PUSERPROFILE john = LoadProfile("John.dat", games);
             }
             break;
         case 6:
             // case for selecting a profile
-            select_profile(profiles, &currentProfileIndex, totalProfiles);
+            //select_profile(profiles, &currentProfileIndex, totalProfiles);
             break;
         case 7:
             // case for getting game recommendations

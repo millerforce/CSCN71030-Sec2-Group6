@@ -6,28 +6,38 @@ bool SaveProfile(USERPROFILE p) {
 }
 
 PUSERPROFILE LoadProfile(char* name, PGAME games[]) {
-	PGAME tempGames = (PGAME)malloc(sizeof(GAME));
-	PUSERPROFILE tempUser = (PGAME)malloc(sizeof(GAME));
+	PGAME tempGames[MAX_GAMES] = { 0 };
+		//= (PGAME)malloc(sizeof(GAME));
+	//PUSERPROFILE tempUser = (PGAME)malloc(sizeof(GAME));
+	int ID;
+	char first[MAXNAME], last[MAXNAME], tag[MAXNAME], password[MAXPASSWORD];
+	FILE* fp = fopen("John.dat", "r");
 
-	FILE* fp = fopen("%s.dat", "r", name);
+	if (fp == NULL || tempGames == NULL)
+		exit(2);
 
-	fscanf(fp, "%d\n", tempUser->userID);
-	fscanf(fp, " %[^\n]s\n", tempUser->firstName);
-	fscanf(fp, " %[^\n]s\n", tempUser->lastName);
-	fscanf(fp, " %[^\n]s\n", tempUser->gamertag);
-	fscanf(fp, " %[^\n]s\n\n", tempUser->password);
+	fscanf(fp, "%d\n", &ID);
+	fscanf(fp, " %[^\n]s\n", first);
+	fscanf(fp, " %[^\n]s\n", last);
+	fscanf(fp, " %[^\n]s\n", tag);
+	fscanf(fp, " %[^\n]s\n\n", password);
 
 	char title[MAXTITLE];
 	int index;
 
 	while (fscanf(fp, " %[^\n]s\n", title) != EOF) {
-		
+		index = SearchForGame(games, title);
+		if (index != -1) {
+			AddGameToProfile(tempGames, games[index]);
+		}
 	}
 
-	free(tempGames);
+	PUSERPROFILE temp = create_profile(ID, first, last, tag, password, tempGames);
+
+	//free(tempGames);
 	fclose(fp);
 
-	return tempUser;
+	return temp;
 }
 
 bool SaveGame(PGAME games[], FILE* fp, int index) {

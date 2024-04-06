@@ -30,7 +30,7 @@ typedef struct game{
 PGAME CreateGame(int ID, char title[], char genre[], char description[], int length);
 
 //R
-void select_profile(USERPROFILE profiles[], int* currentProfileIndex, int totalProfiles);
+//void select_profile(USERPROFILE profiles[], int* currentProfileIndex, int totalProfiles);
 
 int SearchForGame(PGAME games[], char title[]);
 void PrintGame(PGAME games[], int index);
