@@ -25,7 +25,7 @@ typedef struct userprofile{
     char lastName[50];
     char gamertag[50];
     char password[50]; // Password field
-    int isActive; // Flag to indicate if the profile is active or deleted
+    //int isActive; // Flag to indicate if the profile is active or deleted
     PGAME gameCatalog[MAX_GAMES]; // Array to store the game catalog
     int totalGames; // Number of games in the catalog
 } USERPROFILE, *PUSERPROFILE;

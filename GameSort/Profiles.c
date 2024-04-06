@@ -23,6 +23,7 @@ PUSERPROFILE create_profile(int ID, char first[], char last[], char tag[], char 
     for (int i = 0; i < MAX_GAMES; i++) {
         temp->gameCatalog[i] = NULL;
     }
+
     temp->userID = ID;
 
     strcpy(temp->firstName, first);

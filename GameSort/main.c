@@ -90,7 +90,7 @@ int main(void) {
 
                 // for creating a profile
                PUSERPROFILE john = LoadProfile("John.dat", games);
-               SaveProfile(john);
+                SaveProfile(john);
 
                free(john);
             }
@@ -101,7 +101,12 @@ int main(void) {
             break;
         case 7:
             // case for getting game recommendations
-            //get_recommendations(games, currentProfileIndex);
+            if (totalGames > 0) {
+                get_recommendations(games, totalGames);
+            }
+            else {
+                printf("No games available for recommendations. Please add games first.\n");
+            }
             break;
         case 8:
             // Exit 
