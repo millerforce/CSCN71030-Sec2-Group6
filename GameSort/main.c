@@ -15,7 +15,7 @@ int main(void) {
     int createProfileOptionEnabled = 1;
     bool exitCondition = true, exitProgram = true;
     char search[MAXTITLE];
-
+    char choice, first[MAXNAME], last[MAXNAME], ingamertag[MAXNAME], inpassword[MAXPASSWORD];
     srand(time(NULL));
 
    
@@ -42,7 +42,7 @@ int main(void) {
         switch (menuAChoice) {
         case (1):
             printf("Please enter your gamertag: ");
-            scanf("%s", gamertag);
+            scanf(" %s", gamertag);
             for (int i = 0; i < MAX_PROFILES; i++) {
                 if (profiles[i] != NULL && strcmp(profiles[i]->gamertag, gamertag) == 0) {
                     printf("Gamertag found! please enter your password %s: ", getFirstName(profiles[i]));
@@ -79,18 +79,44 @@ int main(void) {
 
                 switch (menuBChoice) {
                 case 1:
+                    printf("Do you want to add a new game or one from the catalogue. Enter N for new and C for catalogue\n");
+                    
+                    scanf(" %c", &choice);
+                    switch (choice) {
+                    case ('N'):
+                        printf("Title: ");
+                        scanf(" %[^\n]s", title);
+                        ID = totalGames;
+                        printf("Genre: ");
+                        scanf(" %[^\n]s", genre);
+                        printf("Descrtiption: ");
+                        scanf(" %[^\n]s", description);
+                        printf("Length: ");
+                        scanf("%d", &length);
+                        profiles[profileIndex]->gameCatalog[currentTotalGames] = CreateGame(ID, title, genre, description, length);
+                        games[totalGames] = profiles[profileIndex]->gameCatalog[currentTotalGames];
+                        totalGames++;
+                        currentTotalGames++;
+                        break;
+                    case('C'):
+                        printf("Please enter the name of the game to add: ");
+                        scanf(" %[^\n]s", search);
+                        searchedIndex = SearchForGame(games, search);
+                        if (searchedIndex == -1) {
+                            printf("No game in catlogue that matches that title\n");
+                        }
+                        else {
+                            printf("Now adding %s to your personal catalogue\n", games[searchedIndex]->title);
+                            profiles[profileIndex]->gameCatalog[currentTotalGames] = games[searchedIndex];
+                        }
+
+                        break;
+                    default:
+                        printf("Invalid option\n");
+                        break;
+                    }
                     // case for adding a game
-                    printf("Title: ");
-                    scanf(" %[^\n]s", title);
-                    ID = totalGames;
-                    printf("Genre: ");
-                    scanf(" %[^\n]s", genre);
-                    printf("Descrtiption: ");
-                    scanf(" %[^\n]s", description);
-                    printf("Length: ");
-                    scanf("%d", &length);
-                    profiles[profileIndex]->gameCatalog[totalGames] = CreateGame(ID, title, genre, description, length);
-                    currentTotalGames++;
+                   
                     break;
                 case 2:
                     //   case for updating a game
@@ -105,7 +131,7 @@ int main(void) {
                         break;
                     }
                     else {
-                        DeleteGame(games, searchedIndex);
+                        DeleteGame(profiles[profileIndex]->gameCatalog, searchedIndex);
                         printf("Game titled: %s was deleted successfully", search);
                     }
                     //  for removing a game
@@ -150,7 +176,9 @@ int main(void) {
                     // Exit 
                  /*   SaveGameCatalogue(games);
                     DeleteGameCatalogue(games);*/
-                    SaveProfile(profiles[currentProfileIndex]);
+                    if (!SaveProfile(profiles[currentProfileIndex])) {
+                        printf("Error profile save failure\n");
+                    }
                     exitCondition = false;
                     break;
                 default:
@@ -160,7 +188,9 @@ int main(void) {
             }
             break;
         case(2):
-
+            
+            printf("Please enter your first name: ");
+            scanf(" %s", )
             break;
         case(3):
             while (exitCondition) {
@@ -252,7 +282,7 @@ int main(void) {
                 case 8:
                     // Exit 
                     SaveGameCatalogue(games);
-                    DeleteGameCatalogue(games);
+                    //DeleteGameCatalogue(games);
                     exitCondition = false;
                     break;
                 default:
@@ -262,7 +292,9 @@ int main(void) {
             }
             break;
         case(4):
-
+            SaveGameCatalogue(games);
+            DeleteGameCatalogue(games);
+            exit(0);
             break;
         default:
 

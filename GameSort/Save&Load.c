@@ -20,9 +20,10 @@ bool SaveProfile(PUSERPROFILE user) {
 	fprintf(fp, "%s\n", getGamertag(user));
 	fprintf(fp, "%s\n\n", getPassword(user));
 
-	int numGames = getTotalGames(user->gameCatalog);
+	//int numGames = getTotalGames(user->gameCatalog);
 
-	for (int i = 0; i < numGames; i++) {
+	for (int i = 0; i < MAX_GAMES; i++) {
+		if (user->gameCatalog[i] != NULL)
 		SaveGameTitle(user->gameCatalog[i], fp);
 	}
 
