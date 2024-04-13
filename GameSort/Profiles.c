@@ -11,6 +11,15 @@ int generate_profile_id() {
     return nextID++;
 }
 
+int getTotalProfiles(PUSERPROFILE users[]) {
+    int count = 0;
+    for (int i = 0; i < MAX_PROFILES; i++) {
+        if (users[i] != NULL)
+            count++;
+    }
+    return count;
+}
+
 // Function to create a new user profile
 PUSERPROFILE create_profile(int ID, char first[], char last[], char tag[], char password[], PGAME catalogue[]) {
 

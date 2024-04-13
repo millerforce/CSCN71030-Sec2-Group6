@@ -51,6 +51,12 @@
   <ItemGroup>
     <None Include="GameCatalogue.dat" />
     <None Include="John.dat" />
+    <None Include="Bob.dat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Dan.dat">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="profileList.txt" />

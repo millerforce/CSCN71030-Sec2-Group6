@@ -36,6 +36,8 @@ typedef struct userprofile{
 // Function declarations
 int generate_profile_id();
 
+int getTotalProfiles(PUSERPROFILE users[]);
+
 // C
 PUSERPROFILE create_profile(int ID, char first[], char last[], char tag[], char password[], PGAME catalogue[]);
 

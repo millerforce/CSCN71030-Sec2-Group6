@@ -1,4 +1,4 @@
 ﻿  main.c
 C:\Users\mille\Desktop\GameSort\GameSort\main.c(19,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\mille\Desktop\GameSort\GameSort\main.c(169,25): warning C4013: 'get_recommendations' undefined; assuming extern returning int
+C:\Users\mille\Desktop\GameSort\GameSort\main.c(224,25): warning C4013: 'get_recommendations' undefined; assuming extern returning int
   GameSort.vcxproj -> C:\Users\mille\Desktop\GameSort\x64\Debug\GameSort.exe

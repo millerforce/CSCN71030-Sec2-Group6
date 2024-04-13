@@ -26,9 +26,17 @@ bool SaveProfile(PUSERPROFILE user) {
 		if (user->gameCatalog[i] != NULL)
 		SaveGameTitle(user->gameCatalog[i], fp);
 	}
-
+	free(user);
 	return true;
 	fclose(fp);
+}
+
+bool SaveAllProfiles(PUSERPROFILE users[MAX_PROFILES]) {
+	for (int i = 0; i < MAX_PROFILES; i++) {
+		if (users[i] != NULL)
+			SaveProfile(users[i]);
+	}
+	return true;
 }
 
 PUSERPROFILE LoadProfile(char* name, PGAME games[]) {
@@ -80,6 +88,20 @@ bool LoadProfileList(PUSERPROFILE users[MAX_PROFILES], PGAME games[]) {
 	for (int i = 0; i < MAX_PROFILES; i++) {
 		if (strlen(names[i]) > 0)
 		users[i] = LoadProfile(names[i], games);
+	}
+
+	fclose(fp);
+}
+
+bool SaveProfileList(PUSERPROFILE users[MAX_PROFILES]) {
+	FILE* fp = fopen("profileList.txt", "w");
+	if (fp == NULL) {
+		exit(4);
+	}
+
+	for (int i = 0; i < MAX_PROFILES; i++) {
+		if (users[i] != NULL)
+			fprintf(fp, "%s\n", getFirstName(users[i]));
 	}
 
 	fclose(fp);

@@ -7,9 +7,13 @@
 
 bool SaveProfile(PUSERPROFILE user);
 
+bool SaveAllProfiles(PUSERPROFILE users[MAX_PROFILES]);
+
 PUSERPROFILE LoadProfile(char* name, PGAME games[]);
 
 bool LoadProfileList(PUSERPROFILE users[MAX_PROFILES], PGAME games[]);
+
+bool SaveProfileList(PUSERPROFILE users[MAX_PROFILES]);
 
 bool SaveGameTitle(PGAME game, FILE* fp);
 
