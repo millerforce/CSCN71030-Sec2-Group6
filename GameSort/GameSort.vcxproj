@@ -145,6 +145,7 @@
     <None Include="Dan.dat" />
     <None Include="GameCatalogue.dat" />
     <None Include="John.dat" />
+    <None Include="Susan.dat" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="profileList.txt" />
