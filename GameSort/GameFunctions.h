@@ -13,6 +13,7 @@
 #define MAXTITLE 100
 #define MAXGENRE 50
 #define MAXDESCRIPTION 400
+#define MAXDIFFICULTY 25
 
 // Struct for a game
 typedef struct game{
@@ -21,6 +22,7 @@ typedef struct game{
     char genre[MAXGENRE];
     char description[MAXDESCRIPTION];
     int length;
+    char difficulty;
 } GAME, *PGAME;
 
 // Functions
