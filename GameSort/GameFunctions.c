@@ -206,15 +206,15 @@ void DeleteGameCatalogue(PGAME games[]) {
     }
 }
 
-void display_games(const GAME games[], int currentProfileIndex) {
-    printf("Displaying games for profile %d...\n", currentProfileIndex);
-
-}
-
-void get_recommendations(const GAME games[], int currentProfileIndex) {
-    printf("Getting recommendations for profile %d...\n", currentProfileIndex);
-
-}
+//void display_games(const GAME games[], int currentProfileIndex) {
+//    printf("Displaying games for profile %d...\n", currentProfileIndex);
+//
+//}
+//
+//void get_recommendations(const GAME games[], int currentProfileIndex) {
+//    printf("Getting recommendations for profile %d...\n", currentProfileIndex);
+//
+//}
 
 //void select_profile(USERPROFILE profiles[], int* currentProfileIndex, int totalProfiles) {
 //    if (totalProfiles == 0) {
@@ -244,11 +244,11 @@ void get_recommendations(const GAME games[], int currentProfileIndex) {
 //}
 
 
-void search_game_catalogue(const GAME games[], int totalGAMEs) {
-    char searchQuery[100];
-    printf("Enter the game title to search for: ");
-    scanf_s("%s", searchQuery, (unsigned int)sizeof(searchQuery));
-
-
-
-}
+//void search_game_catalogue(const GAME games[], int totalGAMEs) {
+//    char searchQuery[100];
+//    printf("Enter the game title to search for: ");
+//    scanf_s("%s", searchQuery, (unsigned int)sizeof(searchQuery));
+//
+//
+//
+//}

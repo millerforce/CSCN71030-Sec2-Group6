@@ -34,7 +34,7 @@ PUSERPROFILE LoadProfile(char* name, PGAME games[]) {
 	PGAME tempGames[MAX_GAMES] = { 0 };
 		//= (PGAME)malloc(sizeof(GAME));
 	//PUSERPROFILE tempUser = (PGAME)malloc(sizeof(GAME));
-	
+	strcat(name, ".dat");
 	FILE* fp = fopen(name, "r");
 	int ID;
 	char first[MAXNAME], last[MAXNAME], tag[MAXNAME], password[MAXPASSWORD];
@@ -65,7 +65,24 @@ PUSERPROFILE LoadProfile(char* name, PGAME games[]) {
 	return temp;
 }
 
+bool LoadProfileList(PUSERPROFILE users[MAX_PROFILES], PGAME games[]) {
+	char names[MAX_PROFILES][MAXNAME] = { 0 };
+	FILE* fp = fopen("profileList.txt", "r");
+	int j = 0;
+	if (fp == NULL)
+		exit(-2);
 
+	while (fscanf(fp, "%s\n", names[j]) != EOF) {
+		j++;
+	}
+
+	for (int i = 0; i < MAX_PROFILES; i++) {
+		if (strlen(names[i]) > 0)
+		users[i] = LoadProfile(names[i], games);
+	}
+
+	fclose(fp);
+}
 
 bool SaveGame(PGAME games[], FILE* fp, int index) {
 	fprintf(fp, "%s\n", getTitle(games, index));

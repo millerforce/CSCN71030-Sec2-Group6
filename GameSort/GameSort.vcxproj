@@ -144,6 +144,9 @@
     <None Include="GameCatalogue.dat" />
     <None Include="John.dat" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="profileList.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

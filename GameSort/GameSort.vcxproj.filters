@@ -52,4 +52,7 @@
     <None Include="GameCatalogue.dat" />
     <None Include="John.dat" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="profileList.txt" />
+  </ItemGroup>
 </Project>

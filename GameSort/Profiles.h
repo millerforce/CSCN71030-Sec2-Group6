@@ -45,6 +45,7 @@ char* getFirstName(PUSERPROFILE user);
 char* getLastName(PUSERPROFILE user);
 char* getGamertag(PUSERPROFILE user);
 char* getPassword(PUSERPROFILE user);
+bool VerifyPassword(PUSERPROFILE user, const char* password);
 
 // U
 bool AddGameToProfile(PGAME usersGames[], PGAME game);
@@ -57,6 +58,6 @@ bool setGamertag(PUSERPROFILE user, char tag[]);
 void update_profile();
 void delete_profile();
 void display_profiles();
-int verify_password(int userID, const char* password);
+
 
 #endif /* PROFILES_H */

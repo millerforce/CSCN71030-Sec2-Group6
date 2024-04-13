@@ -62,6 +62,13 @@ char* getPassword(PUSERPROFILE user) {
     return user->password;
 }
 
+bool VerifyPassword(PUSERPROFILE user, const char* password) {
+    if (strcmp(getPassword(user), password) == 0)
+        return true;
+    else
+        return false;
+}
+
 bool AddGameToProfile(PGAME usersGames[], PGAME game) {
     for (int i = 0; i < MAX_GAMES; i++) {
         if (usersGames[i] == NULL) {
@@ -187,15 +194,7 @@ bool AddGameToProfile(PGAME usersGames[], PGAME game) {
 //
 //// Function to verify the password
 //int verify_password(int userID, const char* password) {
-//    for (int i = 0; i < totalProfiles; i++) {
-//        if (profiles[i].userID == userID && profiles[i].isActive) {
-//            if (strcmp(profiles[i].password, password) == 0) {
-//                return 1; // Password matches
-//            }
-//            else {
-//                return 0; // Password does not match
-//            }
-//        }
+//    
 //    }
 //    return -1; // User ID not found or profile inactive
 //}

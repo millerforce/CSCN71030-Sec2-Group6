@@ -54,8 +54,4 @@ void update_game(GAME games[], int currentProfileIndex);
 void DeleteGame(PGAME games[], int index);
 void DeleteGameCatalogue(PGAME games[]);
 
-
-void display_games(const GAME games[], int currentProfileIndex);
-void get_recommendations(const GAME games[], int currentProfileIndex);
-void search_game_catalogue(const GAME games[], int totalGAMEs);
 #endif 
